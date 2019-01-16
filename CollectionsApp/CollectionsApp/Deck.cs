@@ -8,16 +8,41 @@ namespace CollectionsApp
     public class Deck<T> : IEnumerable<T>
     {
 
-        T[] internalItems = new T[5];
+        public T[] internalItems = new T[2];
         int currentIndex = 0;
         public void Add(T item)
         {
-            if (currentIndex < internalItems.Length)
+            if (currentIndex > internalItems.Length - 1)
             {
-                Array.Resize(ref internalItems, internalItems.Length * 2);
+                Array.Resize(ref internalItems, internalItems.Length + 1);
             }
             internalItems[currentIndex] = item;
             currentIndex++;
+            Console.WriteLine("Length" + internalItems.Length);
+        }
+
+        public void Remove(T item)
+        {
+            int j = 0;
+            for (int i = 0; i < internalItems.Length; i++)
+            {
+                if (item.Equals(internalItems[i]))
+                {
+                    j++;
+                }
+                internalItems[i] = internalItems[j];
+                j++;
+
+                if (j == internalItems.Length)
+                {
+                    i = internalItems.Length;
+                    Console.WriteLine("didnt break");
+                }
+
+            }
+            currentIndex--;
+            Array.Resize(ref internalItems, j - 1);
+            Console.WriteLine((internalItems.Length));
         }
 
 
@@ -31,7 +56,7 @@ namespace CollectionsApp
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator()
+            return GetEnumerator();
         }
     }
 }
