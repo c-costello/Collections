@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CollectionsApp
 {
-    public class Deck<T>
+    public class Deck<T> : IEnumerable<T>
     {
 
         T[] internalItems = new T[5];
@@ -17,6 +18,20 @@ namespace CollectionsApp
             }
             internalItems[currentIndex] = item;
             currentIndex++;
+        }
+
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < currentIndex; i++)
+            {
+                yield return internalItems[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator()
         }
     }
 }
