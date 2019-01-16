@@ -8,7 +8,7 @@ namespace CollectionsApp
     public class Deck<T> : IEnumerable<T>
     {
 
-        public T[] internalItems = new T[2];
+        public T[] internalItems = new T[1];
         int currentIndex = 0;
 
 
@@ -20,13 +20,12 @@ namespace CollectionsApp
             }
             internalItems[currentIndex] = item;
             currentIndex++;
-            Console.WriteLine("Length" + internalItems.Length);
         }
 
         public void Remove(T item)
         {
             int j = 0;
-            for (int i = 0; i < internalItems.Length; i++)
+            for (int i = 0; i < internalItems.Length - 1; i++)
             {
                 if (item.Equals(internalItems[i]))
                 {
@@ -34,17 +33,15 @@ namespace CollectionsApp
                 }
                 internalItems[i] = internalItems[j];
                 j++;
-
                 if (j == internalItems.Length)
                 {
-                    i = internalItems.Length;
-                    Console.WriteLine("didnt break");
-                }
+                    i = internalItems.Length - 1;
 
+                }
             }
+            Array.Resize(ref internalItems, internalItems.Length - 1);
             currentIndex--;
-            Array.Resize(ref internalItems, j - 1);
-            Console.WriteLine((internalItems.Length));
+
         }
 
         public int Count()
@@ -55,7 +52,7 @@ namespace CollectionsApp
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < currentIndex; i++)
+            for (int i = 0; i < internalItems.Length; i++)
             {
                 yield return internalItems[i];
             }

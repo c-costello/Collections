@@ -6,7 +6,7 @@ namespace CollectionsApp
 {
     public class Card
     {
-        public char Value { get; set; }
+        public string Value { get; set; }
         public Suit CardSuit { get; set; }
 
         public enum Suit { Hearts, Spades, Clubs, Diamonds}
