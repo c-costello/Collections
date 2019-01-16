@@ -7,13 +7,14 @@ namespace CollectionsApp
     public class Card
     {
         public char Value { get; set; }
-        public Suit WhichSuit { get; set; }
+        public Suit CardSuit { get; set; }
 
         public enum Suit { Hearts, Spades, Clubs, Diamonds}
 
-        public Card (char value, Suit suit)
+
+        public Card (string value, Suit suit)
         {
-            WhichSuit = suit;
+            CardSuit = suit;
             Value = value;
         }
         

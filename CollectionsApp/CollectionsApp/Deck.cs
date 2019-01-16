@@ -10,6 +10,8 @@ namespace CollectionsApp
 
         public T[] internalItems = new T[2];
         int currentIndex = 0;
+
+
         public void Add(T item)
         {
             if (currentIndex > internalItems.Length - 1)
@@ -43,6 +45,11 @@ namespace CollectionsApp
             currentIndex--;
             Array.Resize(ref internalItems, j - 1);
             Console.WriteLine((internalItems.Length));
+        }
+
+        public int Count()
+        {
+            return currentIndex;
         }
 
 
