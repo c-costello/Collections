@@ -10,10 +10,11 @@ namespace CollectionsApp
             //Card CardDA = new Card("A", Card.Suit.Diamonds);
             //Card CardD2 = new Card("2", Card.Suit.Diamonds);
             //Card CardD3 = new Card("3", Card.Suit.Diamonds);
-            Deck<Card> createdDeck = CreateDeck();
+            Console.WriteLine("Creating Deck...");
             Deck<Card> dealerDeck = CreateDeck();
             Deck<Card> playerOneDeck = new Deck<Card>();
             Deck<Card> playerTwoDeck = new Deck<Card>();
+            Console.WriteLine("Dealing....");
             Deal(dealerDeck, playerOneDeck, playerTwoDeck);
 
         }
