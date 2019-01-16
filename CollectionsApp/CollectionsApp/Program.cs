@@ -46,6 +46,7 @@ namespace CollectionsApp
             {
                 dLength = dLength - 1;
             }
+            Console.WriteLine($"Cards Left: {cardsLeft}");
             for(int i = 0; i < dLength; i++) 
             {
                 cardsLeft--;
