@@ -4,8 +4,18 @@ using System.Text;
 
 namespace CollectionsApp
 {
-    class Card
+    public class Card
     {
+        public char Value { get; set; }
+        public Suit WhichSuit { get; set; }
 
+        public enum Suit { Hearts, Spades, Clubs, Diamonds}
+
+        public Card (char value, Suit suit)
+        {
+            WhichSuit = suit;
+            Value = value;
+        }
+        
     }
 }
