@@ -20,33 +20,18 @@ namespace CollectionsApp
         public static Deck<Card> CreateDeck()
         {
             Deck<Card> deck = new Deck<Card>();
-            Card CardDA = new Card("A", Card.Suit.Diamonds);
-            Card CardD2 = new Card("2", Card.Suit.Diamonds);
-            Card CardD3 = new Card("3", Card.Suit.Diamonds);
-            Card CardD4 = new Card("4", Card.Suit.Diamonds);
-            Card CardD5 = new Card("5", Card.Suit.Diamonds);
-            Card CardD6 = new Card("6", Card.Suit.Diamonds);
-            Card CardD7 = new Card("7", Card.Suit.Diamonds);
-            Card CardD8 = new Card("8", Card.Suit.Diamonds);
-            Card CardD9 = new Card("9", Card.Suit.Diamonds);
-            Card CardD10 = new Card("10", Card.Suit.Diamonds);
-            Card CardDJ = new Card("J", Card.Suit.Diamonds);
-            Card CardDQ = new Card("Q", Card.Suit.Diamonds);
-            Card CardDK = new Card("K", Card.Suit.Diamonds);
-
-            deck.Add(CardDA);
-            deck.Add(CardD2);
-            deck.Add(CardD3);
-            deck.Add(CardD4);
-            deck.Add(CardD5);
-            deck.Add(CardD6);
-            deck.Add(CardD7);
-            deck.Add(CardD8);
-            deck.Add(CardD9);
-            deck.Add(CardD10);
-            deck.Add(CardDJ);
-            deck.Add(CardDQ);
-            deck.Add(CardDK);
+            string[] vals = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+            foreach (string value in vals)
+            {
+                deck.Add(new Card(value, Card.Suit.Clubs));
+                Console.WriteLine($"Added Card: {value} {Card.Suit.Clubs} to deck.");
+                deck.Add(new Card(value, Card.Suit.Diamonds));
+                Console.WriteLine($"Added Card: {value} {Card.Suit.Diamonds} to deck.");
+                deck.Add(new Card(value, Card.Suit.Hearts));
+                Console.WriteLine($"Added Card: {value} {Card.Suit.Hearts} to deck.");
+                deck.Add(new Card(value, Card.Suit.Spades));
+                Console.WriteLine($"Added Card: {value} {Card.Suit.Spades} to deck.");
+            }
             return deck;
         }
 
