@@ -6,7 +6,10 @@ namespace CollectionsApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Deck<Card> deck = new Deck<Card>();
+            deck.Add(new Card('1', Card.Suit.Clubs));
+            deck.Add(new Card('2', Card.Suit.Clubs));
+
         }
     }
 }
