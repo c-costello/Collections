@@ -6,16 +6,27 @@ namespace CollectionsApp
     {
         static void Main(string[] args)
         {
-            //Deck<Card> deck = new Deck<Card>();
-            //Card CardDA = new Card("A", Card.Suit.Diamonds);
-            //Card CardD2 = new Card("2", Card.Suit.Diamonds);
-            //Card CardD3 = new Card("3", Card.Suit.Diamonds);
-            Console.WriteLine("Creating Deck...");
-            Deck<Card> dealerDeck = CreateDeck();
-            Deck<Card> playerOneDeck = new Deck<Card>();
-            Deck<Card> playerTwoDeck = new Deck<Card>();
-            Console.WriteLine("Dealing....");
-            Deal(dealerDeck, playerOneDeck, playerTwoDeck);
+
+            Card CardDA = new Card("A", Card.Suit.Diamonds);
+            Card CardD2 = new Card("2", Card.Suit.Diamonds);
+            Card CardD3 = new Card("3", Card.Suit.Diamonds);
+
+            //Console.WriteLine("Creating Deck...");
+            //Deck<Card> dealerDeck = CreateDeck();
+            //Deck<Card> playerOneDeck = new Deck<Card>();
+            //Deck<Card> playerTwoDeck = new Deck<Card>();
+            //Console.WriteLine("Dealing....");
+            //Deal(dealerDeck, playerOneDeck, playerTwoDeck);
+            Deck<Card> deck = new Deck<Card>();
+            Card cardOne = new Card("Q", Card.Suit.Diamonds);
+            Card cardToBeRemoved = new Card("J", Card.Suit.Hearts);
+            Card cardThree = new Card("5", Card.Suit.Clubs);
+            deck.Add(cardOne);
+            deck.Add(cardThree);
+            Print(deck);
+            deck.Remove(cardToBeRemoved);
+            Print(deck);
+
 
         }
         public static Deck<Card> CreateDeck()

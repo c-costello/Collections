@@ -25,11 +25,13 @@ namespace CollectionsApp
         public void Remove(T item)
         {
             int j = 0;
+            bool shouldCut = false;
             for (int i = 0; i < internalItems.Length - 1; i++)
             {
                 if (item.Equals(internalItems[i]))
                 {
                     j++;
+                    shouldCut = true;
                 }
                 internalItems[i] = internalItems[j];
                 j++;
@@ -39,10 +41,15 @@ namespace CollectionsApp
 
                 }
             }
+            if (shouldCut)
+            {
             Array.Resize(ref internalItems, internalItems.Length - 1);
-            currentIndex--;
+                currentIndex--;
+            }
+        } 
 
-        }
+
+        
 
         public int Count()
         {

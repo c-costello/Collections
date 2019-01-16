@@ -32,5 +32,22 @@ namespace DeckTests
             Assert.Equal("5", deck.internalItems[1].Value);
 
         }
+
+        [Fact]
+        public void CannotRemoveCardNotInDeck()
+        {
+            Deck<Card> deck = new Deck<Card>();
+            Card cardOne = new Card("Q", Card.Suit.Diamonds);
+            Card cardToBeRemoved = new Card("J", Card.Suit.Hearts);
+            Card cardThree = new Card("5", Card.Suit.Clubs);
+            deck.Add(cardOne);
+            deck.Add(cardThree);
+            deck.Remove(cardToBeRemoved);
+
+
+
+            Assert.Equal(2, deck.internalItems.Length);
+
+        }
     }
 }
