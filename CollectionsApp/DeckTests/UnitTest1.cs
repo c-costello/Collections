@@ -43,10 +43,24 @@ namespace DeckTests
             deck.Add(cardOne);
             deck.Add(cardThree);
             deck.Remove(cardToBeRemoved);
-
-
-
             Assert.Equal(2, deck.internalItems.Length);
+
+        }
+        [Fact]
+        public void CanGetAndSetCardProperties()
+        {
+            Card card = new Card("Q", Card.Suit.Hearts);
+
+
+            Assert.Equal("Q", card.Value);
+        }
+        [Fact]
+        public void CanGetAndSetCardPropertiesPtTwo()
+        {
+            Card card = new Card("Q", Card.Suit.Hearts);
+            card.Value = "J";
+
+            Assert.Equal("J", card.Value);
 
         }
     }
