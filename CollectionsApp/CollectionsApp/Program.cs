@@ -54,39 +54,40 @@ namespace CollectionsApp
         {
 
             string whosTurn = "p1";
+            
             int dLength = dealerDeck.internalItems.Length;
-            int counter = 0;
-            int dealerLength = dealerDeck.internalItems.Length;
-            int p1Length = playerOneDeck.internalItems.Length;
-            int p2Length = playerTwoDeck.internalItems.Length;
-            for(int i = 0; i < dLength - 1; i++) 
+            int cardsLeft = dLength;
+            if (dLength % 2 == 1)
             {
-               
+                dLength = dLength - 1;
+            }
+            for(int i = 0; i < dLength; i++) 
+            {
+                cardsLeft--;
+                Console.WriteLine($"Dealing {dealerDeck.internalItems[0].Value} {dealerDeck.internalItems[0].CardSuit} to {whosTurn}");
+                Console.WriteLine($"Cards Left: {cardsLeft}");
+                Console.WriteLine();
+                
+
                 if (whosTurn == "p1")
                 {
-                    //dealerDeck.Remove(card);
                     playerOneDeck.Add(dealerDeck.internalItems[0]);
                     whosTurn = "p2";
-                    p1Length = playerOneDeck.internalItems.Length;
                 }
                 else if (whosTurn == "p2")
                 {
                     playerTwoDeck.Add(dealerDeck.internalItems[0]);
-                    //dealerDeck.Remove(card);
                     whosTurn = "p1";
-                    p2Length = playerTwoDeck.internalItems.Length;
                 }
-                counter++;
-                Console.WriteLine(counter);
-                dealerLength = dealerDeck.internalItems.Length;
                 dealerDeck.Remove(dealerDeck.internalItems[0]);
             }
-                Console.WriteLine("PlayerOne");
-                Print(playerOneDeck);
-                Console.WriteLine("PlayerTwo");
-                Print(playerTwoDeck);
-                Console.WriteLine("Dealer");
-                Print(dealerDeck);
+            Console.WriteLine("Hands: ");    
+            Console.WriteLine("PlayerOne");
+            Print(playerOneDeck);
+            Console.WriteLine("PlayerTwo");
+            Print(playerTwoDeck);
+            Console.WriteLine("Dealer");
+            Print(dealerDeck);
         }
         static void Print(Deck<Card> deck)
         {
