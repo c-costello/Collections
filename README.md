@@ -28,5 +28,5 @@ Deal(newDealerDeck, deckOne, deckTwo);
 ### Creating Deck
 ![creating deck](assets/creating_deck.PNG)
 ### Dealing Demo
-![dealing](asset/dealing_01.PNG)
-![dealing](asset/dealing_01.PNG)
+![dealing](assets/dealing_01.PNG)
+![dealing](assets/dealing_01.PNG)
