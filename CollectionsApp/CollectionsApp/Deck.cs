@@ -11,7 +11,10 @@ namespace CollectionsApp
         public T[] internalItems = new T[1];
         int currentIndex = 0;
 
-
+        /// <summary>
+        /// Adds an intem to a deck
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(T item)
         {
             if (currentIndex > internalItems.Length - 1)
@@ -21,7 +24,10 @@ namespace CollectionsApp
             internalItems[currentIndex] = item;
             currentIndex++;
         }
-
+        /// <summary>
+        /// removes a given time from a deck
+        /// </summary>
+        /// <param name="item">T</param>
         public void Remove(T item)
         {
             int j = 0;
@@ -50,7 +56,10 @@ namespace CollectionsApp
 
 
         
-
+        /// <summary>
+        /// Counts item in a deck;
+        /// </summary>
+        /// <returns>int</returns>
         public int Count()
         {
             return currentIndex;

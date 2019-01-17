@@ -7,25 +7,15 @@ namespace CollectionsApp
         static void Main(string[] args)
         {
 
-            Card CardDA = new Card("A", Card.Suit.Diamonds);
-            Card CardD2 = new Card("2", Card.Suit.Diamonds);
-            Card CardD3 = new Card("3", Card.Suit.Diamonds);
 
-            //Console.WriteLine("Creating Deck...");
-            //Deck<Card> dealerDeck = CreateDeck();
-            //Deck<Card> playerOneDeck = new Deck<Card>();
-            //Deck<Card> playerTwoDeck = new Deck<Card>();
-            //Console.WriteLine("Dealing....");
-            //Deal(dealerDeck, playerOneDeck, playerTwoDeck);
-            Deck<Card> deck = new Deck<Card>();
-            Card cardOne = new Card("Q", Card.Suit.Diamonds);
-            Card cardToBeRemoved = new Card("J", Card.Suit.Hearts);
-            Card cardThree = new Card("5", Card.Suit.Clubs);
-            deck.Add(cardOne);
-            deck.Add(cardThree);
-            Print(deck);
-            deck.Remove(cardToBeRemoved);
-            Print(deck);
+
+            Console.WriteLine("Creating Deck...");
+            Deck<Card> dealerDeck = CreateDeck();
+            Deck<Card> playerOneDeck = new Deck<Card>();
+            Deck<Card> playerTwoDeck = new Deck<Card>();
+            Console.WriteLine("Dealing....");
+            Deal(dealerDeck, playerOneDeck, playerTwoDeck);
+
 
 
         }
@@ -44,9 +34,16 @@ namespace CollectionsApp
                 deck.Add(new Card(value, Card.Suit.Spades));
                 Console.WriteLine($"Added Card: {value} {Card.Suit.Spades} to deck.");
             }
+            deck.Add(new Card("QQQQQQ", Card.Suit.Spades));
             return deck;
         }
 
+        /// <summary>
+        /// Deals cards to players, while removing them from the dealer's deck
+        /// </summary>
+        /// <param name="dealerDeck">Deck</param>
+        /// <param name="playerOneDeck">Deck</param>
+        /// <param name="playerTwoDeck">Deck</param>
         public static void Deal(Deck<Card> dealerDeck, Deck<Card> playerOneDeck, Deck<Card> playerTwoDeck)
         {
 
@@ -54,9 +51,12 @@ namespace CollectionsApp
             
             int dLength = dealerDeck.internalItems.Length;
             int cardsLeft = dLength;
+            bool donotprint = true;
             if (dLength % 2 == 1)
             {
                 dLength = dLength - 1;
+                donotprint = false;
+                
             }
             Console.WriteLine($"Cards Left: {cardsLeft}");
             for(int i = 0; i < dLength; i++) 
@@ -85,8 +85,19 @@ namespace CollectionsApp
             Console.WriteLine("PlayerTwo");
             Print(playerTwoDeck);
             Console.WriteLine("Dealer");
-            Print(dealerDeck);
+            if (!donotprint)
+            {
+                Print(dealerDeck);
+            }
+            else
+            {
+                Console.WriteLine("Dealer has no card left");
+            }
         }
+        /// <summary>
+        /// Prints each card's value and suit in a deck
+        /// </summary>
+        /// <param name="deck"></param>
         static void Print(Deck<Card> deck)
         {
             foreach (Card card in deck)
