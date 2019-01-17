@@ -34,7 +34,6 @@ namespace CollectionsApp
                 deck.Add(new Card(value, Card.Suit.Spades));
                 Console.WriteLine($"Added Card: {value} {Card.Suit.Spades} to deck.");
             }
-            deck.Add(new Card("QQQQQQ", Card.Suit.Spades));
             return deck;
         }
 
@@ -61,37 +60,38 @@ namespace CollectionsApp
             Console.WriteLine($"Cards Left: {cardsLeft}");
             for(int i = 0; i < dLength; i++) 
             {
+                Console.WriteLine();
                 cardsLeft--;
                 Console.WriteLine($"Dealing {dealerDeck.internalItems[0].Value} {dealerDeck.internalItems[0].CardSuit} to {whosTurn}");
-                Console.WriteLine($"Cards Left: {cardsLeft}");
-                Console.WriteLine();
-                
+                           
 
                 if (whosTurn == "p1")
                 {
                     playerOneDeck.Add(dealerDeck.internalItems[0]);
                     whosTurn = "p2";
+                    Console.WriteLine("PlayerOne Deck:");
+                    Print(playerOneDeck);
                 }
                 else if (whosTurn == "p2")
                 {
                     playerTwoDeck.Add(dealerDeck.internalItems[0]);
                     whosTurn = "p1";
+                    Console.WriteLine("PlayerTwo Deck:");
+                    Print(playerTwoDeck);
                 }
                 dealerDeck.Remove(dealerDeck.internalItems[0]);
-            }
-            Console.WriteLine("Hands: ");    
-            Console.WriteLine("PlayerOne");
-            Print(playerOneDeck);
-            Console.WriteLine("PlayerTwo");
-            Print(playerTwoDeck);
-            Console.WriteLine("Dealer");
-            if (!donotprint)
-            {
-                Print(dealerDeck);
-            }
-            else
-            {
-                Console.WriteLine("Dealer has no card left");
+
+   
+                Console.WriteLine("Dealer Deck:");
+                if (donotprint && cardsLeft == 0)
+                {
+                    Console.WriteLine("Dealer has no card left");
+                }
+                else
+                {
+                    Print(dealerDeck);
+                }
+                Console.WriteLine($"Cards Left: {cardsLeft}");
             }
         }
         /// <summary>
